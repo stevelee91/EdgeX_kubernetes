@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: edgex-mongo
+  name: edgex-mongo
+spec:
+  type: NodePort
+  ports:
+  - name: "27017"
+    port: 27017
+    targetPort: 27017
+    nodePort: 32000
+  selector:
+    io.kompose.service: edgex-mongo
+status:
+  loadBalancer: {}
